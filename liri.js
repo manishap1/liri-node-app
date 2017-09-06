@@ -101,7 +101,7 @@ var searchTrack;
 	
 
 function aMovieForMe(){
-	console.log("Netflix and Chill?");
+	console.log("Netflix");
 
 	//same as above, test if search term entered
 	var searchMovie;
@@ -110,19 +110,20 @@ function aMovieForMe(){
 	}else{
 		searchMovie = userTwo;
 	};
-
-	var url = 'http://www.omdbapi.com/?t=' + searchMovie +'&y=&plot=long&tomatoes=true&r=json';
+    var url = "http://www.omdbapi.com/?t=" + searchMovie  + "&y=&plot=short&apikey=40e9cece";
+	
    	request(url, function(error, response, body){
 	    if(!error && response.statusCode == 200){
-	        console.log("Title: " + JSON.parse(body)["Title"]);
-	        console.log("Year: " + JSON.parse(body)["Year"]);
-	        console.log("IMDB Rating: " + JSON.parse(body)["imdbRating"]);
-	        console.log("Country: " + JSON.parse(body)["Country"]);
-	        console.log("Language: " + JSON.parse(body)["Language"]);
-	        console.log("Plot: " + JSON.parse(body)["Plot"]);
-	        console.log("Actors: " + JSON.parse(body)["Actors"]);
-	        console.log("Rotten Tomatoes Rating: " + JSON.parse(body)["tomatoRating"]);
-	        console.log("Rotten Tomatoes URL: " + JSON.parse(body)["tomatoURL"]);
+	        console.log("Title: " + JSON.parse(body).Title);
+	        console.log("Release Year : " + JSON.parse(body).Year);
+	        
+	        console.log("IMDB Rating: " + JSON.parse(body).imdbRating);
+	        console.log("Country: " + JSON.parse(body).Country);
+	        console.log("Language: " + JSON.parse(body).Language);
+	        console.log("Plot: " + JSON.parse(body).Plot);
+	        console.log("Actors: " + JSON.parse(body).Actors);
+	        console.log("Rotten Tomatoes Rating: " + JSON.parse(body).tomatoRating);
+	        console.log("Rotten Tomatoes URL: " + JSON.parse(body).tomatoURL);
 	    }
     });
 };
